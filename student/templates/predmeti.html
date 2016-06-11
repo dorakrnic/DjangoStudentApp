@@ -1,0 +1,41 @@
+{% load staticfiles %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'style.css' %}" />
+
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+<div class="container">
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">Student App</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li><a href="{% url 'index'%}">Home</a></li>
+      <li><a href="{% url 'studenti'%}">Studenti</a></li>
+      <li class="active"><a href="{% url 'predmeti'%}">Predmeti</a></li>
+    </ul>
+  </div>
+</nav>
+<div>
+{% if lista_predmeta %}
+	<table class="table">
+		<tr>
+			<th>Predmet</th>
+			<th>Sifra</th>
+		</tr>
+		{% for predmet in lista_predmeta %}
+		<tr>
+			<td><a href="/student/detailPredmet{{predmet.id}}">{{predmet}}</a></td>
+			<td>{{predmet.sifra}}</td>
+		</tr>
+		{% endfor %}
+		
+		</table>
+{% else %}
+<p> Nema predmeta </p>
+{% endif %}
+</div>	
+</div>

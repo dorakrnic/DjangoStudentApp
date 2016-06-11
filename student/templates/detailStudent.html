@@ -1,0 +1,58 @@
+{% load staticfiles %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'style.css' %}" />
+
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+<div class="container">
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">Student App</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li class="active"><a href="{% url 'index'%}">Home</a></li>
+      <li><a href="{% url 'studenti'%}">Studenti</a></li>
+      <li><a href="{% url 'predmeti'%}">Predmeti</a></li>
+    </ul>
+  </div>
+</nav>
+<div class="row col-md-4">
+<table class="table">
+	<tr>
+		<td class="right">Ime:</td>
+		<td class="value">{{student.studentIme}}</td>
+	</tr>
+	<tr>
+		<td class="right">Prezime:</td>
+		<td class="value">{{student.studentPrezime}}</td>
+	</tr>
+	<tr>
+		<td class="right">Index:</td>
+		<td class="value">{{student.index}}</td>
+	</tr>
+	<tr>
+		<td class="right">Grad:</td>
+		<td class="value">{{student.grad}}</td>
+	</tr>
+	<tr>
+		<td class="right">Adresa:</td>
+		<td class="value">{{student.adresa}}</td>
+	</tr>
+	<tr>
+		<td class="right">JMBG:</td>
+		<td class="value">{{student.jmbg}}</td>
+	</tr>
+	<tr>
+		<td class="right">Pol:</td>
+		<td class="value">{{student.pol}}</td>
+	</tr>
+	<tr>
+		<td class="right">Datum rodjenja:</td>
+		<td class="value">{{student.datumRodjenja}}</td>
+	</tr>
+</table>
+</div>	
+</div>
