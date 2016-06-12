@@ -13,7 +13,10 @@ def getOcena(value, arg):
         s=Student.objects.get(id=arg) 
         o=Ocena.objects.all()
         strOcena=str(o.filter(predmet_id=value, student_id=s.id))
-        sliceOcena=strOcena[9:10]
+        if (strOcena[10]=='>'):
+            sliceOcena=strOcena[9:10]
+        else:
+             sliceOcena=strOcena[9:11]
         return sliceOcena
         
 @register.filter
