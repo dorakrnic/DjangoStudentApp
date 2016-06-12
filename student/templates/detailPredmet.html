@@ -1,50 +1,11 @@
 {% load staticfiles %}
-
+{% load my_tags %}
 <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}" />
 
 <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
 <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 
-<!-- <script>
-$(document).ready(function(){
-$('#ocena').on('load',function(){
-	var p=$('#predmetid').html();
-	var s=$('#studentid').html();
-	$.ajax({
-		url:'getOcena',
-		type:'GET',
-		dataType : 'json',
-		data:{predmetid: p, studentid: s},
-		success: function(response){
-			var o=response.ocena;
-			$('#ocena').html(o);
-		}
-	});
-});
-	
-});
-</script>
-<script>
-window.onload=function(){
-	var p=$('#predmetid').html();
-	var s=$('#studentid').html();
-	$.ajax({
-		url:'getOcena',
-		type:'GET',
-		dataType : 'json',
-		data:{predmetid: p, studentid: s},
-		success: function(response){
-			var o=response.ocena;
-			console.log(o);
-			$('#ocena').html(o);
-		},
-		error: function(){
-        alert("Error");
-		}
-	});
-};
-</script> -->
 <div class="container">
 <nav class="navbar navbar-default">
   <div class="container-fluid">
@@ -76,9 +37,10 @@ window.onload=function(){
 			<td id="studentid" hidden>{{student.id}}</td>
 			<td>{{student.studentIme}} {{student.studentPrezime}}</td>
 			<td>{{student.index}}</td>
-			<td id="ocena">{{ocena}}</td>
+			<td id="ocena">{{ predmet.id|getOcena:student.id}}</td>
 		</tr>
 	{% endfor %}
 </table>
+
 </div>	
 </div>
